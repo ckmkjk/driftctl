@@ -21,3 +21,8 @@
 - **Status:** complete
 - **Tests passing:** yes (27/27)
 - **Notes:** Full coverage: enum values, model defaults, explicit values, round-trip serialization, init/save/load, add_component, add_session, contract hashing, full integration workflow.
+
+### Step 5 — driftctl/cli.py
+- **Status:** complete
+- **Tests passing:** N/A (stubs verified via --help)
+- **Notes:** Click group with all 6 commands stubbed. init is fully wired to state.init_state with 4 prompts. status reads and displays state. guard has add/list/test subcommands. checkpoint has save/rollback subcommands. All stubs print warning and exit(1).
