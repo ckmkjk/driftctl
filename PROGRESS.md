@@ -50,3 +50,8 @@
 - **Status:** complete
 - **Tests passing:** yes (13/13)
 - **Notes:** Generates structured markdown handoff prompt with identity, components, recent sessions (last 3), guardrails, and suggested next steps. print_handoff for terminal output.
+
+### Step 10 — driftctl/checkpoint.py + tests
+- **Status:** complete
+- **Tests passing:** yes (12/12)
+- **Notes:** Save/rollback/list/delete named state snapshots stored in .driftctl/checkpoints/. Validates name (no empty, no path separators). Full round-trip tested including state mutation and restore.
