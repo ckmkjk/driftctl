@@ -62,3 +62,15 @@
 - **Status:** complete
 - **Tests passing:** yes (105/105 full suite)
 - **Notes:** All stubs replaced with real implementations. validate wired to validator.run_all_checks (with --skip-tests flag). handoff wired to handoff.generate_handoff. drift wired to drift.detect_drift. guard add/list/test wired to guard module. checkpoint save/rollback/list wired to checkpoint module. All errors caught cleanly with exit codes 0/1/2.
+
+### Step 12 — README.md
+- **Status:** complete
+- **Tests passing:** N/A (documentation)
+- **Notes:** Install instructions (pip install -e .), quick start, all 6 commands documented with examples, state file schema reference, test instructions.
+
+### Step 13 — Full integration test
+- **Status:** complete
+- **Tests passing:** yes (105 unit + 12 e2e commands all exit 0)
+- **Notes:** All 6 commands tested end-to-end: init, validate, status (+ --json), guard (add/list/test), drift, handoff, checkpoint (save/list/rollback). Fixed build-backend in pyproject.toml (setuptools.build_meta). Package installs and runs correctly via pip install -e .
+
+## BUILD COMPLETE
