@@ -38,3 +38,8 @@
 - **Status:** complete
 - **Tests passing:** yes (22/22)
 - **Notes:** Rule management (add/remove/list) and rule testing. Four rule types: cmd:, no-file:, require-file:, and manual/descriptive. Renamed test_rules→check_rules to avoid pytest collection conflict. Added testpaths config to pyproject.toml.
+
+### Step 8 — driftctl/drift.py + tests
+- **Status:** complete
+- **Tests passing:** yes (12/12)
+- **Notes:** Compares contract hashes against current file contents. Categorises components as clean/drifted/missing/no_contract. DriftResult with ok property. print_result for rich output.
