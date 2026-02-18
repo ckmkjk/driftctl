@@ -26,3 +26,10 @@
 - **Status:** complete
 - **Tests passing:** N/A (stubs verified via --help)
 - **Notes:** Click group with all 6 commands stubbed. init is fully wired to state.init_state with 4 prompts. status reads and displays state. guard has add/list/test subcommands. checkpoint has save/rollback subcommands. All stubs print warning and exit(1).
+
+## Phase 2: Core Commands
+
+### Step 6 — driftctl/validator.py + tests
+- **Status:** complete
+- **Tests passing:** yes (19/19)
+- **Notes:** Four checks: state file, git repo, test command execution, contract hash verification. ValidationResult dataclass aggregates results. run_all_checks with run_tests flag for skipping slow test execution in unit tests. print_result for rich output.
