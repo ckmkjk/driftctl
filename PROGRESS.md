@@ -55,3 +55,10 @@
 - **Status:** complete
 - **Tests passing:** yes (12/12)
 - **Notes:** Save/rollback/list/delete named state snapshots stored in .driftctl/checkpoints/. Validates name (no empty, no path separators). Full round-trip tested including state mutation and restore.
+
+## Phase 4: Polish
+
+### Step 11 — Wire all commands in cli.py
+- **Status:** complete
+- **Tests passing:** yes (105/105 full suite)
+- **Notes:** All stubs replaced with real implementations. validate wired to validator.run_all_checks (with --skip-tests flag). handoff wired to handoff.generate_handoff. drift wired to drift.detect_drift. guard add/list/test wired to guard module. checkpoint save/rollback/list wired to checkpoint module. All errors caught cleanly with exit codes 0/1/2.
