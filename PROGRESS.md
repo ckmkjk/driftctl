@@ -43,3 +43,10 @@
 - **Status:** complete
 - **Tests passing:** yes (12/12)
 - **Notes:** Compares contract hashes against current file contents. Categorises components as clean/drifted/missing/no_contract. DriftResult with ok property. print_result for rich output.
+
+## Phase 3: Session Commands
+
+### Step 9 — driftctl/handoff.py + tests
+- **Status:** complete
+- **Tests passing:** yes (13/13)
+- **Notes:** Generates structured markdown handoff prompt with identity, components, recent sessions (last 3), guardrails, and suggested next steps. print_handoff for terminal output.
