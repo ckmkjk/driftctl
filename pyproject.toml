@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.backends._legacy:_Backend"
+
+[project]
+name = "driftctl"
+version = "0.1.0"
+description = "Persistent project state, guard rails, and drift detection for AI coding agents"
+requires-python = ">=3.10"
+dependencies = [
+    "click",
+    "rich",
+    "pydantic",
+    "gitpython",
+    "pyyaml",
+]
+
+[project.scripts]
+driftctl = "driftctl.cli:cli"
+
+[tool.setuptools.packages.find]
+include = ["driftctl*"]
+
+[project.optional-dependencies]
+dev = ["pytest"]
