@@ -33,3 +33,8 @@
 - **Status:** complete
 - **Tests passing:** yes (19/19)
 - **Notes:** Four checks: state file, git repo, test command execution, contract hash verification. ValidationResult dataclass aggregates results. run_all_checks with run_tests flag for skipping slow test execution in unit tests. print_result for rich output.
+
+### Step 7 — driftctl/guard.py + tests
+- **Status:** complete
+- **Tests passing:** yes (22/22)
+- **Notes:** Rule management (add/remove/list) and rule testing. Four rule types: cmd:, no-file:, require-file:, and manual/descriptive. Renamed test_rules→check_rules to avoid pytest collection conflict. Added testpaths config to pyproject.toml.
