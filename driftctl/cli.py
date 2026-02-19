@@ -280,3 +280,21 @@ def list_checkpoints_cmd() -> None:
     root = Path.cwd()
     names = list_checkpoints(root)
     print_checkpoints(names)
+
+
+# ---------------------------------------------------------------------------
+# sync
+# ---------------------------------------------------------------------------
+
+@cli.command()
+@click.option("--force", is_flag=True, help="Skip confirmation, always overwrite.")
+@click.option("--preview", is_flag=True, help="Show what would be written without writing.")
+def sync(force: bool, preview: bool) -> None:
+    """Write current project state into CLAUDE.md for automatic session context."""
+    from driftctl.sync import sync as run_sync
+
+    root = Path.cwd()
+    try:
+        run_sync(root, force=force, preview=preview)
+    except FileNotFoundError:
+        _handle_missing_state()

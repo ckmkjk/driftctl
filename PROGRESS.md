@@ -101,3 +101,22 @@
 ### Step 5 — Commit
 - **Status:** complete
 - **Tests passing:** yes (123/123 full suite)
+
+## Phase 2: sync command
+
+### Step 6 — driftctl/sync.py
+- **Status:** complete
+- **Notes:** generate_claude_md builds CLAUDE.md from state with header, identity, guardrails, component table, last session, and agent instructions. compute_diff for change preview. sync function with --force and --preview flags. Confirmation prompt with mock support.
+
+### Step 7 — Wire sync in cli.py
+- **Status:** complete
+- **Notes:** Added sync command with --force and --preview options.
+
+### Step 8 — tests/test_sync.py
+- **Status:** complete
+- **Tests passing:** yes (24/24)
+- **Notes:** Content generation, diff computation, file writing, sync integration with force/preview/cancel/confirm scenarios.
+
+### Step 9 — Commit
+- **Status:** complete
+- **Tests passing:** yes (147/147 full suite)
