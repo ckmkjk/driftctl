@@ -1,0 +1,8 @@
+click
+rich
+pydantic
+gitpython
+pyyaml
+
+[dev]
+pytest
