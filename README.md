@@ -22,6 +22,12 @@ pip install -e ".[dev]"
 # Initialise a new project (asks 4 questions)
 driftctl init
 
+# Sync state into CLAUDE.md (zero copy-paste for Claude Code)
+driftctl sync
+
+# Or generate a kickoff block to paste into any agent
+driftctl kickoff
+
 # Check project health
 driftctl validate
 
@@ -32,8 +38,17 @@ driftctl status --json
 # Detect contract drift
 driftctl drift
 
-# Generate a handoff prompt for the next session
+# Generate a handoff prompt at end of session
 driftctl handoff
+```
+
+## Recommended Workflow
+
+```
+Session start:  driftctl sync       (or driftctl kickoff)
+During work:    driftctl validate   (check health)
+                driftctl guard test (check guardrails)
+Session end:    driftctl handoff    (record what happened)
 ```
 
 ## Commands
@@ -65,6 +80,26 @@ Displays a human-readable summary of the project state. Use `--json` for machine
 ### `driftctl drift`
 
 Compares every component's recorded contract hash against the current file on disk. Reports components as clean, drifted, missing, or no-contract.
+
+### `driftctl kickoff`
+
+Generate a ready-to-paste context block for starting any agent session. Outputs a Rich panel with project identity, component statuses, guardrails, last session, task queue, and agent instructions. Also saves to `.driftctl/kickoff_latest.md`.
+
+```bash
+driftctl kickoff
+driftctl kickoff --component api      # focus on one component
+driftctl kickoff --no-history          # exclude session history
+```
+
+### `driftctl sync`
+
+Write current project state directly into `CLAUDE.md` in the project root. Claude Code reads this file automatically at session start — zero copy-paste required.
+
+```bash
+driftctl sync               # interactive (shows diff, asks to confirm)
+driftctl sync --force        # overwrite without asking
+driftctl sync --preview      # show what would be written, don't write
+```
 
 ### `driftctl handoff`
 
