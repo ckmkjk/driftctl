@@ -73,4 +73,31 @@
 - **Tests passing:** yes (105 unit + 12 e2e commands all exit 0)
 - **Notes:** All 6 commands tested end-to-end: init, validate, status (+ --json), guard (add/list/test), drift, handoff, checkpoint (save/list/rollback). Fixed build-backend in pyproject.toml (setuptools.build_meta). Package installs and runs correctly via pip install -e .
 
-## BUILD COMPLETE
+## V1 BUILD COMPLETE
+
+---
+
+# V1.1 BUILD PROGRESS
+
+## Phase 1: kickoff command
+
+### Step 1 — Read existing code
+- **Status:** complete
+- **Notes:** Read cli.py, state.py, handoff.py, __init__.py. Understood all patterns and APIs.
+
+### Step 2 — Add kickoff() to handoff.py
+- **Status:** complete
+- **Notes:** generate_kickoff with --component and --no-history flags. save_kickoff writes to .driftctl/kickoff_latest.md. print_kickoff uses Rich Panel. Task queue scoped to filtered component.
+
+### Step 3 — Wire kickoff in cli.py
+- **Status:** complete
+- **Notes:** Added kickoff command with --component and --no-history options.
+
+### Step 4 — tests/test_kickoff.py
+- **Status:** complete
+- **Tests passing:** yes (18/18)
+- **Notes:** Content tests, flag tests (component filter, no-history), save tests, edge cases.
+
+### Step 5 — Commit
+- **Status:** complete
+- **Tests passing:** yes (123/123 full suite)

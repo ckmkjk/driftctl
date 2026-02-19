@@ -127,6 +127,32 @@ def handoff() -> None:
 
 
 # ---------------------------------------------------------------------------
+# kickoff
+# ---------------------------------------------------------------------------
+
+@cli.command()
+@click.option("--component", default=None, help="Focus context on a specific component.")
+@click.option("--no-history", is_flag=True, help="Exclude session history from output.")
+def kickoff(component: str | None, no_history: bool) -> None:
+    """Generate a ready-to-paste context block for starting an agent session."""
+    from driftctl.handoff import generate_kickoff, print_kickoff, save_kickoff
+
+    root = Path.cwd()
+    try:
+        text = generate_kickoff(
+            root, component=component, include_history=not no_history
+        )
+    except FileNotFoundError:
+        _handle_missing_state()
+    except ValueError as exc:
+        console.print(f"[red]✗[/red] {exc}")
+        raise SystemExit(2)
+
+    save_kickoff(root, text)
+    print_kickoff(text)
+
+
+# ---------------------------------------------------------------------------
 # drift
 # ---------------------------------------------------------------------------
 
