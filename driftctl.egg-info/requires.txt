@@ -3,6 +3,7 @@ rich
 pydantic
 gitpython
 pyyaml
+jinja2
 
 [dev]
 pytest

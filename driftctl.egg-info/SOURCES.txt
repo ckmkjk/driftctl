@@ -1,3 +1,4 @@
+License
 README.md
 pyproject.toml
 driftctl/__init__.py
@@ -7,6 +8,7 @@ driftctl/drift.py
 driftctl/guard.py
 driftctl/handoff.py
 driftctl/state.py
+driftctl/sync.py
 driftctl/validator.py
 driftctl.egg-info/PKG-INFO
 driftctl.egg-info/SOURCES.txt
@@ -18,5 +20,7 @@ tests/test_checkpoint.py
 tests/test_drift.py
 tests/test_guard.py
 tests/test_handoff.py
+tests/test_kickoff.py
 tests/test_state.py
+tests/test_sync.py
 tests/test_validator.py
